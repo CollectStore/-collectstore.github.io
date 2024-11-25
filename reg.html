@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Futurista</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #00ffff 1px, transparent 1px),
+                        radial-gradient(circle, #00ffff 1px, transparent 1px);
+            background-size: 10px 10px;
+            opacity: 0.2;
+            animation: moveParticles 30s linear infinite;
+        }
+
+        @keyframes moveParticles {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(100px, 100px);
+            }
+        }
+        .register-container {
+            background: rgba(30, 30, 30, 0.9); 
+            padding: 2rem;
+            border-radius: 15px;
+            width: 350px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), 0 0 30px rgba(0, 255, 255, 0.15);
+            text-align: center;
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .register-container h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #00ffff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        .register-container h2::after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background: #00ffff;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+            }
+            50% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+            }
+        }
+
+        .register-container input[type="text"],
+        .register-container input[type="email"],
+        .register-container input[type="password"] {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .register-container input[type="text"]:focus,
+        .register-container input[type="email"]:focus,
+        .register-container input[type="password"]:focus {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            border: 2px solid #00ffff;
+        }
+
+        
+        .register-container button {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 1.5rem;
+            background-color: #00ffff; 
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #0f2027;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+
+        .register-container button:hover {
+            background-color: #ffffff;
+            color: #0f2027;
+            box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+        }
+
+        .register-container .login-link {
+            margin-top: 1.5rem;
+            display: inline-block;
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .register-container .login-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+                    
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Registro</h2>
+        <form action="reg.php" method="POST"></form>
+
+            <label for="user">Nombre de usuario:</label>
+            <input type="text" id="user" name="user" placeholder="Nombre de usuario" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+
+            <button type="submit">Crear cuenta</button>
+            <a href="sesion.html" class="login-link">¿Ya tienes cuenta? Inicia sesión</a>
+        </form>
+    </div>
+
+</body>
+</html>

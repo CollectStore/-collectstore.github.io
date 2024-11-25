@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo ColectStore</title>
+    <style>
+        /* Estilo general */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #002333, #004f70);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Encabezado */
+        header {
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Barra de búsqueda */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .search-bar input::placeholder {
+            color: #bbb;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #00ffff;
+            color: #000;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .search-bar button:hover {
+            background: #00bfb2;
+        }
+
+        /* Barra de navegación */
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Título */
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2rem;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        }
+
+        /* Contenedor del catálogo */
+        .catalog-wrapper {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .catalog-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Tarjeta de artículo */
+        .item-card {
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Imagen */
+        .item-card .image-container {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .item-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Información */
+        .item-info h2 {
+            font-size: 1.2rem;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .item-info p {
+            font-size: 0.9rem;
+            color: #bbb;
+            margin-bottom: 10px;
+        }
+
+        .item-info .price {
+            font-size: 1.2rem;
+            color: #00ffb2;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Botón */
+        .item-info button {
+            background: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .item-info button:hover {
+            background: #00bfb2;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ColectStore</div>
+        <!-- Barra de navegación -->
+        <div class="nav-bar">
+            <a href="carrito.html">Carrito</a>
+            <a href="#cuenta">Cuenta</a>
+            <a href="contact.html">Contáctanos</a>
+            <a href="index.html">Principal</a>
+        </div>
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+            <input type="text" placeholder="¿Qué modelo buscas?">
+            <button>🔍</button>
+        </div>
+    </header>
+
+    <div class="catalog-wrapper">
+        <h1>Catálogo ColectStore</h1>
+        <div class="catalog-container">
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/7127ynxi0vL._AC_UF894,1000_QL80_.jpg" alt="Ford Mustang Shelby GT500">
+                </div>
+                <div class="item-info">
+                    <h2>Ford Mustang Shelby GT500</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$19.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71L2JQieDLL.jpg" alt="Ford Mustang Mach-E 1400">
+                </div>
+                <div class="item-info">
+                    <h2>Ford Mustang Mach-E 1400</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$29.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="image-container">
+                    <img src="https://m.media-amazon.com/images/I/71zrddQpVIL.jpg" alt="Custom '18 Ford Mustang GT">
+                </div>
+                <div class="item-info">
+                    <h2>Custom '18 Ford Mustang GT</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$39.99</div>
+                    <button>Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

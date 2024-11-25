@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta de Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .cuenta-contenedor {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .cuenta-titulo {
+            font-size: 24px;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .cuenta-info {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .cuenta-info label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .cuenta-info span {
+            display: block;
+            margin-bottom: 10px;
+            color: #555555;
+        }
+
+        .boton-cerrar-sesion {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-cerrar-sesion:hover {
+            background-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor de cuenta -->
+    <div class="cuenta-contenedor">
+        <h1 class="cuenta-titulo">Tu Cuenta</h1>
+        <div class="cuenta-info">
+            <label>Nombre de Usuario:</label>
+            <span>Juan Pérez</span>
+            <label>Email:</label>
+            <span>juan.perez@example.com</span>
+            <label>Fecha de Registro:</label>
+            <span>23 de Noviembre, 2024</span>
+        </div>
+        <!-- Botón para cerrar sesión -->
+        <button class="boton-cerrar-sesion" onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+
+    <script>
+        function cerrarSesion() {
+            // Redirigir al usuario al apartado de registro
+            window.location.href = "reg.html"; 
+        }
+    </script>
+</body>
+</html>

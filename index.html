@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Sales Store</title>
+    <style>
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f3f3;
+    color: #444;
+}
+
+header {
+    background-color: #34495e;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+
+header h1 {
+    font-size: 1.8rem;
+    text-align: left;
+    flex: 1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    justify-content: flex-end; /* Los links de navegación alineados a la derecha */
+}
+
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
+
+.search-container input {
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+}
+.search-container button {
+    width: 80%;
+}
+
+
+.search-container button:hover {
+    background-color: #16a085;
+}
+main {
+    padding: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+.car-gallery {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+}
+
+.car-item {
+    min-width: 220px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.car-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.car-item img {
+    max-width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.car-item p {
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #e74c3c;
+    cursor: pointer;
+}
+
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+.add-to-cart-btn {
+    background-color: #16a085;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+.add-to-cart-btn:active {
+    transform: scale(1);
+    background-color: #148f77;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ColectStore</h1>
+        <nav>
+            <ul>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="rese.html">Reseñas</a></li>
+                <li><a href="contact.html">Contáctanos</a></li>
+                <li><a href="sesion.html">Iniciar Sesion</a></li>
+                <li><a href="cuenta.html">Cuenta</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" placeholder="¿Qué modelo buscas?">
+                <button type="submit">🔍</button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h2>Carros Populares</h2>
+        <div class="car-gallery">
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 12345')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_613821-MLM80635548423_112024-O.webp" alt="Carro 1">
+                <p>CollectStore Item 1</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: er543vb')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_884357-MLM74415566137_022024-O.webp" alt="Carro 2">
+                <p>CollectStore Item 2</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 46546gg')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_969559-MLM71674976768_092023-O.webp" alt="Carro 3">
+                <p>CollectStore Item 3</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 654yge')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_793340-MLM72432720081_102023-O.webp" alt="Carro 4">
+                <p>CollectStore Item 4</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 4383hf')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_806816-MLM70102248283_062023-O.webp" alt="Carro 5">
+                <p>CollectStore Item 5</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 55555')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_620186-MLM47000128415_082021-O.webp" alt="Carro 5">
+                <p>CollectStore Item 6</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 43gt2')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_794942-MLM78158659558_082024-O.webp" alt="Carro 5">
+                <p>CollectStore Item 7</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 5346y54')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_869741-MLM72353633586_102023-O.webp" alt="Carro 5">
+                <p>CollectStore Item 8</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 36t54')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_989004-MLM72929455379_112023-O.webp" alt="Carro 5">
+                <p>CollectStore Item 9</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 43563hb')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_915453-MLM72928574790_112023-O.webp" alt="Carro 5">
+                <p>CollectStore Item 10</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 43565h')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_975223-MLM77528170919_072024-O.webp" alt="Carro 5">
+                <p>CollectStore Item 11</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+        </div>
+
+
+
+        <div class="car-gallery">
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 352975')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_763744-MLM72906980288_112023-O.webp" alt="Carro 1">
+                <p>CollectStore Item 12</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 547433')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_620860-MLM70381839725_072023-O.webp" alt="Carro 2">
+                <p>CollectStore Item 13</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 34690')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_999874-MLM73692579803_122023-O.webp" alt="Carro 3">
+                <p>CollectStore Item 14</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 324547')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_860230-MLM78893525057_092024-O.webp" alt="Carro 4">
+                <p>CollectStore Item 15</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 587879')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_623551-MLM76619042159_052024-O.webp" alt="Carro 5">
+                <p>CollectStore Item 16</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 42543')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_819984-MLM77971484745_072024-O.webp" alt="Carro 5">
+                <p>CollectStore Item 17</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 24542')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_698325-MLM75923706327_042024-O.webp" alt="Carro 5">
+                <p>CollectStore Item 18</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 247665')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_869741-MLM72353633586_102023-O.webp" alt="Carro 5">
+                <p>CollectStore Item 19</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 432675')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_989004-MLM72929455379_112023-O.webp" alt="Carro 5">
+                <p>CollectStore Item 20</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 32544')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_915453-MLM72928574790_112023-O.webp" alt="Carro 5">
+                <p>CollectStore Item 21</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 235243')">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_975223-MLM77528170919_072024-O.webp" alt="Carro 5">
+                <p>CollectStore Item 22</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+        </div>
+
+        <div class="car-gallery">
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 58765')">
+                <img src="https://pbs.twimg.com/media/GdNUvT8bAAACnx4?format=jpg&name=small" alt="Carro 1">
+                <p>CollectStore Item 23</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 12554')">
+                <img src="https://pbs.twimg.com/media/GdNUo_2bYAACiV7?format=jpg&name=small" alt="Carro 2">
+                <p>CollectStore Item 24</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+            <div class="car-item" onclick="showDetails('Articulo  Via CollectStore', 'Precio: $20,000', 'No. de serie: 32423')">
+                <img src="https://pbs.twimg.com/media/GdNUR5WaoAA6cGe?format=jpg&name=small" alt="Carro 4">
+                <p>CollectStore Item 25</p>
+                <button class="add-to-cart-btn" onclick="addToCart(event, 'Artículo Via CollectStore')">Agregar al carrito</button>
+            </div>
+        </div>
+
+    </main>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="product-title"></h2>
+            <p id="product-price"></p>
+            <p id="product-serial"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Derechos Reservados</p>
+    </footer>
+
+    <script>
+        function showDetails(title, price, serial) {
+            document.getElementById("product-title").innerText = title;
+            document.getElementById("product-price").innerText = price;
+            document.getElementById("product-serial").innerText = serial;
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal")) {
+                closeModal();
+            }
+        } 
+        const cartItems = []; // Array para almacenar los artículos del carrito
+
+function addToCart(event, productName) {
+    event.stopPropagation(); // Evita que se active el onclick del contenedor
+    cartItems.push(productName); // Agrega el producto al array
+
+    // Actualiza la lista del carrito
+    const cartItemsList = document.getElementById("cart-items");
+    cartItemsList.innerHTML = ""; // Limpia la lista
+    cartItems.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        cartItemsList.appendChild(li);
+    });
+
+    alert("${productName}" se ha añadido al carrito.);
+}
+    </script>
+</body>
+</html>

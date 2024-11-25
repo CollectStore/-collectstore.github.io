@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        /* Estilo general */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #002333, #004f70);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Encabezado */
+        header {
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Barra de navegación */
+        .nav-bar {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            padding: 10px 0;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 5px 10px;
+        }
+
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contenedor del carrito */
+        .cart-wrapper {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+            margin-top: 20px;
+        }
+
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Elementos del carrito */
+        .cart-item {
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-details h2 {
+            font-size: 1.2rem;
+            color: #00ffff;
+            text-shadow: 0 0 5px #00ffff;
+            margin-bottom: 10px;
+        }
+
+        .item-details p {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        .item-details .price {
+            font-size: 1.2rem;
+            color: #00ffb2;
+            font-weight: bold;
+        }
+
+        /* Controles de cantidad */
+        .quantity-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .quantity-controls button {
+            background: #00ffff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .quantity-controls button:hover {
+            background: #00bfb2;
+        }
+
+        .quantity-controls input {
+            width: 50px;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        /* Total */
+        .cart-total {
+            text-align: right;
+            font-size: 1.5rem;
+            color: #00ffff;
+            margin-top: 20px;
+        }
+
+        /* Botón de compra */
+        .checkout-button {
+            background: #00ffb2;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .checkout-button:hover {
+            background: #00ffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ColectStore</div>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="nav-bar">
+        <a href="catalogo.html">Catálogo</a>
+        <a href="#cuenta">Cuenta</a>
+        <a href="contact.html">Contáctanos</a>
+        <a href="index.html">Principal</a>
+    </nav>
+
+    <div class="cart-wrapper">
+        <h1>Carrito de Compras</h1>
+        <div class="cart-container">
+            <!-- Producto en el carrito -->
+            <div class="cart-item">
+                <img src="https://m.media-amazon.com/images/I/7127ynxi0vL._AC_UF894,1000_QL80_.jpg" alt="Ford Mustang Shelby GT500">
+                <div class="item-details">
+                    <h2>Ford Mustang Shelby GT500</h2>
+                    <p>Hot Wheels - Vehículo de colección.</p>
+                    <div class="price">$19.99</div>
+                </div>
+                <div class="quantity-controls">
+                    <button>-</button>
+                    <input type="number" value="1" min="1">
+                    <button>+</button>
+                </div>
+            </div>
+
+            <!-- Más productos en el carrito -->
+            <!-- Copia y pega más div.cart-item según sea necesario -->
+
+        </div>
+
+        <div class="cart-total">
+            Total: $19.99
+        </div>
+        <button onclick="window.location.href='pago.html';" class="checkout-button">Proceder al pago</button>
+
+    </div>
+</body>
+</html>
